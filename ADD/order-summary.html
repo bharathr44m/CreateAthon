@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Summary</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Order Summary</h1>
+    </header>
+    <main>
+        <div id="order-details"></div>
+        <p>Total Price: ₹<span id="order-total">0</span></p>
+    </main>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const orderDetails = document.getElementById('order-details');
+        const orderTotal = document.getElementById('order-total');
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        const summary = cart.reduce((acc, item) => {
+            if (!acc[item.name]) {
+                acc[item.name] = { price: item.price, quantity: 0 };
+            }
+            acc[item.name].quantity += 1;
+            return acc;
+        }, {});
+
+        let total = 0;
+        for (const [name, { price, quantity }] of Object.entries(summary)) {
+            const itemDiv = document.createElement('div');
+            itemDiv.textContent = `${name}: ${quantity} x ₹${price} = ₹${quantity * price}`;
+            orderDetails.appendChild(itemDiv);
+            total += quantity * price;
+        }
+
+        orderTotal.textContent = total.toFixed(2);
+    });
+</script>
+</html>

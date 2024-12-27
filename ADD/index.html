@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Shop</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Grocery Shop 🛒</h1>
+    </header>
+    <main>
+        <div class="product-list">
+            <div class="product" data-id="1" data-name="Rice (1kg)" data-price="50">
+                <h2>Rice (1kg)</h2>
+                <p>Price: ₹50</p>
+                <button onclick="addToCart(1)">Add to Cart</button>
+            </div>
+            <div class="product" data-id="2" data-name="Wheat Flour (1kg)" data-price="40">
+                <h2>Wheat Flour (1kg)</h2>
+                <p>Price: ₹40</p>
+                <button onclick="addToCart(2)">Add to Cart</button>
+            </div>
+            <div class="product" data-id="3" data-name="Sugar (1kg)" data-price="45">
+                <h2>Sugar (1kg)</h2>
+                <p>Price: ₹45</p>
+                <button onclick="addToCart(3)">Add to Cart</button>
+            </div>
+            <div class="product" data-id="4" data-name="Milk (1L)" data-price="60">
+                <h2>Milk (1L)</h2>
+                <p>Price: ₹60</p>
+                <button onclick="addToCart(4)">Add to Cart</button>
+            </div>
+            <div class="product" data-id="5" data-name="Eggs (12 pcs)" data-price="70">
+                <h2>Eggs (12 pcs)</h2>
+                <p>Price: ₹70</p>
+                <button onclick="addToCart(5)">Add to Cart</button>
+            </div>
+            <div class="product" data-id="6" data-name="Tea (250g)" data-price="150">
+                <h2>Tea (250g)</h2>
+                <p>Price: ₹150</p>
+                <button onclick="addToCart(6)">Add to Cart</button>
+            </div>
+            <div class="product" data-id="7" data-name="Coffee (200g)" data-price="200">
+                <h2>Coffee (200g)</h2>
+                <p>Price: ₹200</p>
+                <button onclick="addToCart(7)">Add to Cart</button>
+            </div>
+            <div class="product" data-id="8" data-name="Cooking Oil (1L)" data-price="120">
+                <h2>Cooking Oil (1L)</h2>
+                <p>Price: ₹120</p>
+                <button onclick="addToCart(8)">Add to Cart</button>
+            </div>
+        </div>
+    </main>
+    <div class="cart">
+        <h2>Cart</h2>
+        <ul id="cart-items"></ul>
+        <p>Total: ₹<span id="total-price">0</span></p>
+        <button id="confirm-btn" onclick="confirmOrder()">Confirm</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
